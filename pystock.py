@@ -1,18 +1,16 @@
-import os
-from alpha_vantage.timeseries import TimeSeries
+import numpy as np
 
-# get the api key from environment variable
-apikey = os.getenv('ALPHAVANTAGE_API_KEY')
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+from torch.utils.data import Dataset
+from torch.utils.data import DataLoader
 
-#initialize the TimeSeries class
-ts = TimeSeries(key=apikey)
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
 
-# Get json object with the intraday data and another with  the call's metadata
-data, meta_data = ts.get_intraday('GOOGL')
+from alpha_vantage.timeseries import TimeSeries 
 
-#print metadata and data
-print (meta_data)
-print (data)
-
-
+print("All libraries loaded")
 
